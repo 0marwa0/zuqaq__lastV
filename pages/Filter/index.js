@@ -1,15 +1,10 @@
 import { Button } from "antd";
 import antd from "antd";
 import { Layout, Breadcrumb } from "antd";
-import Slider from "react-slick";
-import { wrap } from "@popmotion/popcorn";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 import "../../Styles/Filter.less";
-import { Example } from "./FilterBtn.js";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
-import FilterButtons from "../../components/carousel";
-import { AnimatePresence, motion } from "framer-motion";
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Card } = antd;
