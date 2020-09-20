@@ -1,0 +1,307 @@
+import { Button } from "antd";
+import antd from "antd";
+import { Layout, Breadcrumb, Carousel } from "antd";
+import Slider from "react-slick";
+var ObjectFitCover = require("react-object-fit-cover");
+import { wrap } from "@popmotion/popcorn";
+const { Header, Footer, Sider, Content } = Layout;
+import { FaGreaterThan, FaLessThan } from "react-icons/fa";
+import { useState } from "react";
+import "../../Styles/Filter.less";
+import { Example } from "./FilterBtn.js";
+import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import FilterButtons from "../../components/carousel";
+import { AnimatePresence, motion } from "framer-motion";
+
+const { Card } = antd;
+const { Meta } = Card;
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+};
+const fitlerImtes = [
+  { title: "Wearables" },
+  { title: "Hoodle" },
+  { title: "Male T-shirt" },
+  { title: "Female T-shirt" },
+  { title: "Kids" },
+  { title: "Dresses" },
+  { title: "Skrits" },
+  { title: "Free Size" },
+  { title: "Hats" },
+  { title: "Bags" },
+];
+const items = [
+  {
+    id: "1",
+    src: "../static/images/t1.png",
+    size: "M",
+    title: "Baghdad",
+    color: "Black",
+  },
+  {
+    id: "2",
+    src: "../static/images/t2.png",
+    size: "L",
+    title: "Batman",
+    color: "red",
+  },
+  {
+    id: "3",
+    src: "../static/images/t3.png",
+    size: "L",
+    title: "Baghdad",
+    color: "White",
+  },
+  {
+    id: "4",
+    src: "../static/images/t4.png",
+    size: "S",
+    title: "WonderWomen",
+    color: "Black",
+  },
+  {
+    id: "5",
+    src: "../static/images/t5.png",
+    size: "L",
+    title: "Batman",
+    color: "red",
+  },
+  {
+    id: "6",
+    src: "../static/images/t6.png",
+    size: "M",
+    title: "Baghdad",
+    color: "Green",
+  },
+  {
+    id: "7",
+    src: "../static/images/t7.png",
+    size: "M",
+    title: "Baghdad",
+    color: "Black",
+  },
+  {
+    id: "8",
+    src: "../static/images/t8.png",
+    size: "L",
+    title: "Batman",
+    color: "rded",
+  },
+  {
+    id: "9",
+    src: "../static/images/t9.png",
+    size: "M",
+    title: "Baghdad",
+    color: "Green",
+  },
+];
+
+export default function Filter() {
+  const [currentItem, setCurrentItem] = useState(1);
+  const [itemperClick, setItemClick] = useState(5);
+  const [currentStep, setCurrentStep] = useState(1);
+  // const prevItem = () => {
+  //   if (currentItem > 1) {
+  //     setCurrentItem(currentItem - 1);
+  //   }
+  // };
+
+  const totalItem = Math.ceil(fitlerImtes.length / itemperClick);
+
+  // const nextItem = () => {
+  //   if (currentItem != totalItem) {
+  //     setCurrentItem(currentItem + 1);
+  //   }
+  // };
+  let lastIndex = currentItem * itemperClick;
+  let firstIndex = lastIndex - itemperClick;
+
+  console.log(
+    "current",
+    +firstIndex + " * " + lastIndex
+    // itemperPage + " -" + lastIndex
+  );
+  const [xspot, setX] = useState(0);
+  const [goFor, setGofor] = useState(0);
+  const [Dragging, setDragging] = useState(false);
+  const nextOne = () => {
+    setX(xspot - 100);
+    console.log(xspot, "value of x");
+    let x = wrap(0, fitlerImtes.length, 11);
+    console.log(x, "warp");
+  };
+  const getX = (x) => {
+    setGofor(x);
+    console.log(x, "x moving value");
+  };
+  return (
+    <div className="filter_page">
+      <div className="filter_head">
+        <div className="fa_wrapper1">
+          <LeftOutlined
+            style={{ fontSize: "20px", color: "rgb(189, 186, 186)" }}
+          />
+        </div>
+        {fitlerImtes.map((item, i) => {
+          return (
+            <motion.div
+              drag="x"
+              animate={{ x: xspot }}
+              // onDrag={(event, info) => {
+              //   getX(event.x);
+              // }}
+
+              onChange={() => {
+                console.log("I am number", i);
+              }}
+              style={{
+                backgroundColor: "white",
+
+                cursor: "pointer",
+
+                // textAlign: "center",
+                // border: "1px solid #e8ebed",
+                // borderRadius: "6px",
+              }}
+              // onPan={z(event, info) => {
+              //   console.log(info.point.x, info.point.y);
+              //   getX(info.point.x / 2);
+              // }}
+              onDragStart={(event) => {
+                setDragging(true);
+              }}
+              // dragDirectionLock
+              onDragEnd={(event) => {
+                setDragging(false);
+              }}
+              // dragConstraints={{ left: -50, right: 50 }}
+            >
+              <Button
+                type={i === 0 ? "primary" : ""}
+                style={{ padding: "5px 45px" }}
+              >
+                {" "}
+                {item.title}
+              </Button>
+            </motion.div>
+          );
+        })}
+
+        <div className="fa_wrapper2" onClick={nextOne}>
+          <RightOutlined
+            style={{ fontSize: "20px", color: "rgb(189, 186, 186)" }}
+          />
+        </div>
+      </div>
+      {/* {currentItem === 1 ? null : (
+          <div className="fa_wrapper1" onClick={prevItem}>
+            <LeftOutlined
+              style={{ fontSize: "20px", color: "rgb(189, 186, 186)" }}
+            />
+          </div>
+        )}
+        {fitlerImtes.slice(firstIndex, lastIndex).map((item, i) => {
+          return (
+            <Button
+              key={i}
+              size="large"
+              style={{
+                padding: "0.5% 5%",
+                backgroundColor: item.title === "Wearables" ? " #3B86FF" : "",
+                fontWeight: "500",
+                color:
+                  item.title === "Wearables" ? "white" : "rgb(189, 186, 186)",
+              }}
+            >
+              {item.title}
+            </Button>
+          );
+        })}
+        {currentItem === totalItem ? null : (
+          <div
+            className="fa_wrapper2"
+            //  onClick={nextItem}
+          >
+            <RightOutlined
+              style={{ fontSize: "20px", color: "rgb(189, 186, 186)" }}
+            />
+          </div>
+        )}
+      </div> */}
+      <div className="card_wrapper">
+        {items.map((item, i) => {
+          return (
+            <div style={{ height: "100%" }}>
+              <div
+                style={{
+                  height: "12em",
+                  maxWidth: "100%",
+                  borderRadius: "10px 10px 0 0 ",
+                }}
+              >
+                <img
+                  style={{
+                    height: "100%",
+                    width: "100%",
+                    borderRadius: "10px 10px 0 0",
+                    objectFit: "cover",
+                  }}
+                  src={item.src}
+                />
+              </div>
+              <div className="item_footer">
+                <p className="itme-title-">{item.title}</p>
+                <div
+                  style={{
+                    margin: "0px",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {item.color}
+                  <span style={{ color: "blue" }}>{item.size}</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+const Slide = ({ content, background }) => {
+  return (
+    <motion.div
+      initial={{ x: -1000 }}
+      _dragX={true}
+      animate={{
+        zIndex: 1,
+        x: 0,
+      }}
+      drag="x"
+      exit={{
+        zIndex: 0,
+        x: 1000,
+      }}
+      transition={{
+        x: { type: "spring", stiffness: 600, damping: 200 },
+      }}
+      style={{
+        flex: 1,
+        display: "flex",
+        justifyContent: "center",
+        width: "30%",
+        alignItems: "center",
+        fontSize: 40,
+        background,
+      }}
+    >
+      {content}
+    </motion.div>
+  );
+};
