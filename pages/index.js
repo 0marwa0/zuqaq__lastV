@@ -26,59 +26,58 @@ const index = () => {
         </Col>
       </Row>
 
-      <Layout>
-        <Footer
-          style={{
-            width: "100%",
-            height: "10%",
-            position: "fixed",
-            bottom: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#24292e",
-            // #24292e
-            zIndex: "9999",
-            padding: "0 45px",
-          }}
-        >
-          <div className="footer">
-            <span>
-              <BsList
-                color="white"
-                style={{
-                  marginBottom: "5px",
-                  marginTop: "5px",
-                  marginRight: "22px",
-                  fontSize: "30px",
-                }}
-              />
-              <span
-                style={{
-                  fontSize: "16px",
-                  height: "2.5%",
-                  lineHeight: "2",
-                  paddingLeft: "3px",
-                }}
-              >
-                Home
-              </span>
-            </span>
-            <Button
+      <div
+        style={{
+          width: "100%",
+          height: "10%",
+          position: "fixed",
+          bottom: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#24292e",
+          // #24292e
+          zIndex: "9999",
+
+          padding: "0 45px",
+        }}
+      >
+        <div className="footer">
+          <span>
+            <BsList
+              color="white"
               style={{
-                backgroundColor: "#3b86ff",
-                color: "white",
-                border: "none",
-                height: "24px",
-                fontSize: "14px",
-                padding: " 2 25px",
+                marginBottom: "5px",
+                marginTop: "5px",
+                marginRight: "22px",
+                fontSize: "30px",
+              }}
+            />
+            <span
+              style={{
+                fontSize: "16px",
+                height: "2.5%",
+                lineHeight: "2",
+                paddingLeft: "3px",
               }}
             >
-              <p style={{ fontSize: "14px" }}> checkout</p>
-            </Button>
-          </div>
-        </Footer>
-      </Layout>
+              Home
+            </span>
+          </span>
+          <Button
+            style={{
+              backgroundColor: "#3b86ff",
+              color: "white",
+              border: "none",
+              height: "24px",
+              fontSize: "14px",
+              padding: " 2 25px",
+            }}
+          >
+            <p style={{ fontSize: "14px" }}> checkout</p>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
