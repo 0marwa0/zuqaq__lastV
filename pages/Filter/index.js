@@ -1,21 +1,8 @@
 import { Button } from "antd";
-import antd from "antd";
-import { Layout, Breadcrumb } from "antd";
-import { FaGreaterThan, FaLessThan } from "react-icons/fa";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../../Styles/Filter.less";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 
-const { Header, Footer, Sider, Content } = Layout;
-const { Card } = antd;
-const { Meta } = Card;
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-};
 const fitlerImtes = [
   { title: "Wearables" },
   { title: "Hoodle" },
@@ -104,7 +91,6 @@ export default function Filter() {
   useEffect(() => {
     let boxWidth = document.getElementById("btn").clientWidth;
     setWidth(boxWidth);
-    console.log(boxWidth, "our width");
   });
 
   const handleClick = (type) => {
@@ -113,7 +99,7 @@ export default function Filter() {
         .marginRight;
     let m = margin.slice(0, -2);
     margin = parseInt(m);
-    console.log(margin, "fainlly");
+
     const cardWidth = width;
     const cardMargin = margin;
 
@@ -122,7 +108,6 @@ export default function Filter() {
     let position = pos;
 
     if (type === "next" && count <= 2) {
-      console.log(currentCard, count, pos, "what");
       currentCard = currentCard + 1;
       setNum((num) => num + 1);
 
@@ -175,48 +160,14 @@ export default function Filter() {
           />
         </div>
       </div>
-      {/* {currentItem === 1 ? null : (
-          <div className="fa_wrapper1" onClick={prevItem}>
-            <LeftOutlined
-              style={{ fontSize: "20px", color: "rgb(189, 186, 186)" }}
-            />
-          </div>
-        )}
-        {fitlerImtes.slice(firstIndex, lastIndex).map((item, i) => {
-          return (
-            <Button
-              key={i}
-              size="large"
-              style={{
-                padding: "0.5% 5%",
-                backgroundColor: item.title === "Wearables" ? " #3B86FF" : "",
-                fontWeight: "500",
-                color:
-                  item.title === "Wearables" ? "white" : "rgb(189, 186, 186)",
-              }}
-            >
-              {item.title}
-            </Button>
-          );
-        })}
-        {currentItem === totalItem ? null : (
-          <div
-            className="fa_wrapper2"
-            //  onClick={nextItem}
-          >
-            <RightOutlined
-              style={{ fontSize: "20px", color: "rgb(189, 186, 186)" }}
-            />
-          </div>
-        )}
-      </div> */}
+
       <div className="card_wrapper">
         {items.map((item, i) => {
           return (
             <div style={{ height: "100%" }}>
               <div
                 style={{
-                  height: "160px",
+                  height: "14em",
                   maxWidth: "100%",
                   borderRadius: "10px 10px 0 0 ",
                 }}

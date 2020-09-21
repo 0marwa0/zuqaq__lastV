@@ -1,25 +1,15 @@
 import "../Styles/Filter.less";
-import { Layout, Breadcrumb, Col } from "antd";
-
-const { Header, Footer, Sider, Content } = Layout;
 import { GiDividedSpiral } from "react-icons/gi";
 import antd from "antd";
-import { DownOutlined, UserOutlined } from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 const { Menu, Dropdown, Button } = antd;
 
 const menu = (
   <Menu>
-    <Menu.Item key="1" icon={<UserOutlined />}>
-      1st menu item
-    </Menu.Item>
-    <Menu.Item key="2" icon={<UserOutlined />}>
-      2nd menu item
-    </Menu.Item>
-    <Menu.Item key="3" icon={<UserOutlined />}>
-      3rd menu item
-    </Menu.Item>
+    <Menu.Item key="1">1st menu item</Menu.Item>
+    <Menu.Item key="2">2nd menu item</Menu.Item>
   </Menu>
 );
 function index() {
@@ -37,8 +27,7 @@ function index() {
           style={{
             width: "100%",
             borderBottom: " 1px solid #e8ebed",
-            // display: "flex",
-            // height: "8%px",
+
             display: "grid",
             gap: "10px",
             gridTemplateColumns: "auto 1fr 0.3fr auto",
@@ -79,16 +68,10 @@ function index() {
             style={{
               display: "flex",
               alignItems: "center",
-              // paddingLeft: "10px",
             }}
           >
             {" "}
-            <GiDividedSpiral
-              size="20"
-              color="#4d91ff"
-              // style={{ marginLeft: "" }}
-              // color="rgb(201, 194, 194)"
-            />
+            <GiDividedSpiral size="20" color="#4d91ff" />
           </div>
         </div>
 
@@ -96,8 +79,6 @@ function index() {
           style={{
             width: "100%",
             borderBottom: " 1px solid #e8ebed",
-            // display: "flex",
-            // height: "75px",
             display: "grid",
             gap: "10px",
             gridTemplateColumns: "auto 1fr 0.3fr auto",
@@ -136,12 +117,7 @@ function index() {
             }}
           >
             {" "}
-            <GiDividedSpiral
-              size="20"
-              //color="#4d91ff"
-              // style={{ marginLeft: "" }}
-              color="rgb(201, 194, 194)"
-            />
+            <GiDividedSpiral size="20" color="rgb(201, 194, 194)" />
           </div>
         </div>
       </div>
