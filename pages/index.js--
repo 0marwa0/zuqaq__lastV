@@ -1,0 +1,176 @@
+import { Layout, Button, Row, Col } from "antd";
+import { BsList } from "react-icons/bs";
+const { Footer } = Layout;
+import Filter from "./Filter";
+import "../Styles/style.less";
+import SideWindow from "./SideWindow.js";
+import { Component } from "react";
+
+class index extends Component {
+  componentDidMount = () => {
+    this.flkty.on("settle", () => {
+      console.log(`current index is ${this.flkty.selectedIndex}`, this.flkty);
+    });
+  };
+  next = () => {
+    this.flkty.next();
+  };
+  render() {
+    let Flickity;
+    if (typeof window !== "undefined") {
+      Flickity = require("react-flickity-component");
+    }
+    return (
+      <div>
+        {/* <Row style={{ display: "flex", flexFlow: "row", width: "100%" }}>
+          <Col
+            style={{
+              flex: "0 0 73%",
+              width: "50%",
+              overflow: "hidden",
+            }}
+          >
+            <Col
+              style={{
+                width: "auto",
+                // position: "fixed",
+
+                margin: "0 10%",
+
+                height: "auto",
+              }}
+            > */}
+        {Flickity && (
+          <div
+            style={{
+              width: "800px",
+              height: "auto",
+              margin: "3% 0",
+            }}
+          >
+            <Flickity
+              freeScroll={false}
+              wrapAround={true}
+              initialIndex={2}
+              contain={true}
+              flickityRef={(c) => (this.flkty = c)}
+              wrapAround={true}
+              pageDots={false}
+              groupCells={true}
+              prevNextButtons={false}
+              wrapAround={false}
+              // contain: false,
+              // cellSelector: undefined,
+              // draggable: true,
+              // freeScroll: false
+            >
+              <div style={{ display: "flex" }}>
+                <Button
+                  style={{
+                    padding: "2px 45px",
+                    margin: "0 3%",
+                    fontSize: "1.5vw",
+                    backgroundColor: "#3B86FF",
+                    border: "none",
+                    color: "white",
+                  }}
+                >
+                  Wearables
+                </Button>
+                <Button style={{ padding: "2px 45px", margin: "0 3%" }}>
+                  Hoodle
+                </Button>
+                <Button style={{ padding: "2px 45px", margin: "0 3%" }}>
+                  Male T-shirt
+                </Button>
+                <Button style={{ padding: "2px 45px", margin: "0 3%" }}>
+                  Kids
+                </Button>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Button style={{ padding: "2px 45px", margin: "0 3%" }}>
+                  Dresses
+                </Button>
+                <Button style={{ padding: "2px 45px", margin: "0 3%" }}>
+                  Male T-shirt
+                </Button>
+                <Button style={{ padding: "2px 45px", margin: "0 5%" }}>
+                  Skrits
+                </Button>
+              </div>
+            </Flickity>
+          </div>
+        )}
+        {/* </Col>
+          <Filter /> 
+          </Col>
+         <Col
+            style={{
+              flex: "0 0 245px",
+            }}
+          >
+            <SideWindow />
+          </Col>
+        </Row> */}
+
+        <div
+          style={{
+            width: "100%",
+            height: "10%",
+            position: "fixed",
+            bottom: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#24292e",
+            // #24292e
+            zIndex: "9999",
+
+            padding: "0 45px",
+          }}
+        >
+          <div className="footer">
+            <span>
+              <BsList
+                color="white"
+                style={{
+                  marginBottom: "5px",
+                  marginTop: "5px",
+                  marginRight: "22px",
+                  fontSize: "30px",
+                }}
+              />
+              <span
+                style={{
+                  fontSize: "16px",
+                  height: "2.3%",
+                  lineHeight: "2",
+                  paddingLeft: "3px",
+                }}
+              >
+                Home
+              </span>
+            </span>
+            <Button
+              style={{
+                backgroundColor: "#3b86ff",
+                color: "white",
+                border: "none",
+                height: "24px",
+                fontSize: "14px",
+                padding: " 2 25px",
+              }}
+            >
+              <p style={{ fontSize: "14px" }}> checkout</p>
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+export default index;

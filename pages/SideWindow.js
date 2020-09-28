@@ -125,7 +125,13 @@ function index() {
         <div className="discount">
           <Dropdown overlay={menu}>
             <Button style={{ textAlign: "left", width: "100%" }}>
-              Discount <DownOutlined style={{ float: "right" }} />
+              Discount{" "}
+              <DownOutlined
+                style={{
+                  float: "right",
+                  marginTop: "2%",
+                }}
+              />
             </Button>
           </Dropdown>
         </div>

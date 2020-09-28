@@ -17,18 +17,15 @@
   border: 1px solid #e8ebed;
   border-radius: 7px;
 }
-.item_footer {
-  padding: 10px;
-  border-bottom: 1px solid#dbdcdd !important;
-  border-left: 1px solid #dbdcdd !important;
-  border-right: 1px solid#dbdcdd !important;
-  border-radius: 0px 0px 5px 5px;
-  background-color: white;
-}
+
 .Main_container {
   display: flex;
   flex-direction: row;
   // background-color: blue;
+}
+
+.slider_ {
+  padding-top: 12px;
 }
 .filter_head {
   display: flex;
@@ -36,33 +33,52 @@
   margin-top: 0.7rem;
   margin-bottom: 0.7rem;
   align-items: center;
+  flex-direction: row;
   padding: 10px 0;
-
+  height: 50px;
   position: relative;
   width: 80%;
   overflow: hidden;
+  background-color: palevioletred;
   position: relative;
   color: rgb(189, 186, 186);
 }
 .fa_wrapper1,
 .fa_wrapper2 {
-  padding: 15px 10px;
-  width: 3.5rem;
+  width: 5%;
   height: 100%;
+  bottom: 10px;
   position: absolute;
   background-color: white;
   z-index: 999;
+
   cursor: pointer;
+}
+
+.btn {
+  padding: 2px 1.5%;
+  margin: 0 0.8%;
+  font-size: 1.2vw;
+  display: inline-block;
+  height: 10%;
+  width: 18.3%;
+  border-radius: 7px;
+
+  font-weight: normal !important;
+  border: 1px solid rgb(236, 233, 233);
 }
 .fa_wrapper1 {
   top: 0;
   left: 0;
+  padding: 1.9% 1%;
   box-shadow: 5px 0 10px rgba(204, 200, 200, 0.2) !important;
 }
 .fa_wrapper2 {
   top: 0;
   right: 0;
-  box-shadow: -5px 0 10px rgba(204, 200, 200, 0.2) !important;
+  padding: 2.3% 1%;
+
+  box-shadow: -12px 0 8px -4px rgba(204, 200, 200, 0.2) !important;
 }
 .item_footer {
   display: flex;
@@ -70,21 +86,26 @@
 
   // font-weight: bold;
   color: rgb(201, 194, 194);
-  height: 65px;
-  padding: 10px 15px !important;
-  margin: 0px !important;
-  background-color: white;
-  border-bottom: 1px solid rgb(201, 194, 194);
-  border-left: 1px solid rgb(201, 194, 194);
-  border-right: 1px solid rgb(201, 194, 194);
+  height: auto;
+  padding-left: 4%;
+  padding-top: 2%;
+  padding-right: 4%;
+  // padding-bottom: 5% !important;
+  margin: 0px;
+
+  border-bottom: 1px solid rgb(236, 233, 233);
+  border-left: 1.9px solid rgb(236, 233, 233);
+  border-right: 1px solid rgb(236, 233, 233);
   border-radius: 0px 0px 5px 5px;
   justify-content: space-between;
 }
 .itme-title- {
-  font-size: 1rem !important;
+  font-size: 1.3vw !important;
   color: rgb(70, 68, 68) !important;
   word-break: break-all;
-  margin: 0 !important;
+  margin-top: 2% !important;
+  margin-bottom: 0 !important;
+
   font-weight: 400;
 }
 .item_footer span {
@@ -96,15 +117,16 @@
 .card_wrapper {
   display: grid;
   grid-template-columns: repeat(3, 31%);
-  // grid-template-rows: repeat(3, 27%);
+  // background-color: green;
   gap: 3%;
   flex-direction: row;
   height: auto;
-  width: 80%;
+  width: 90%;
   row-gap: 30px;
   align-items: center;
   justify-content: center;
   height: 80%;
+  // margin-left: 2%;
   margin-bottom: 20%;
 }
 /****window***/
@@ -251,3 +273,12 @@
 //     width: 35%;
 //   }
 // }
+/*! Flickity v2.1.2
+https://flickity.metafizzy.co
+---------------------------------------------- */
+@media only screen and (max-width: 768px) {
+  .btn {
+    font-size: 0.7rem;
+    font-weight: normal !important;
+  }
+}
