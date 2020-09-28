@@ -25,10 +25,6 @@ class index extends Component {
     this.flkty.prev();
   };
   render() {
-    let Flickity;
-    if (typeof window !== "undefined") {
-      Flickity = require("react-flickity-component");
-    }
     return (
       <div>
         <Row style={{ display: "flex", flexFlow: "row", width: "100%" }}>

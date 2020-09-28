@@ -26,14 +26,14 @@ const items = [
     id: "2",
     src: "../static/images/t2.png",
     size: "L",
-    title: "Batman",
-    color: "red",
+    title: "Arka Nass",
+    color: "Red",
   },
   {
     id: "3",
     src: "../static/images/t3.png",
     size: "XL",
-    title: "Baghdad",
+    title: "Ana AlIraq",
     color: "White",
   },
   {
@@ -54,7 +54,7 @@ const items = [
     id: "6",
     src: "../static/images/t6.png",
     size: "M",
-    title: "Baghdad",
+    title: "Baghdadi",
     color: "Green",
   },
   {
@@ -132,10 +132,6 @@ export default class index extends Component {
   // };
 
   render() {
-    let Flickity;
-    if (typeof window !== "undefined") {
-      Flickity = require("react-flickity-component");
-    }
     return (
       <div className="filter_page">
         <div className="card_wrapper">
