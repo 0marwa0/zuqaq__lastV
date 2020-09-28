@@ -138,36 +138,13 @@ export default class index extends Component {
           {items.map((item, i) => {
             return (
               <div style={{ height: "100%" }}>
-                <div
-                  style={{
-                    height: "14em",
-                    maxWidth: "100%",
-                    borderRadius: "10px 10px 0 0 ",
-                  }}
-                >
-                  <img
-                    style={{
-                      height: "100%",
-                      width: "100%",
-                      borderRadius: "10px 10px 0 0",
-                      objectFit: "cover",
-                    }}
-                    src={item.src}
-                  />
+                <div className="img_container">
+                  <img src={item.src} />
                 </div>
                 <div className="item_footer">
                   <p className="itme-title-">{item.title}</p>
-                  <div
-                    style={{
-                      margin: "0px",
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <p style={{ fontWeight: "400", fontSize: "1.2vw" }}>
-                      {item.color}
-                    </p>
+                  <div className="item_info">
+                    <p style={{ fontSize: "1.2vw" }}>{item.color}</p>
 
                     <span style={{ color: "#90baff", fontSize: "1.2vw" }}>
                       {item.size}
